@@ -1,4 +1,4 @@
-defmodule TreeNode do
+defmodule TreeNode2 do
   defstruct [:value, :left, :right]
 
   def build(value),
@@ -15,6 +15,18 @@ defmodule TreeNode do
     end
 
     new_tree
+  end
+
+  def contains?(nil, value), do: false
+  def contains?(tree, value) do
+    cond do
+      tree.value > value ->
+        contains?(tree.left, value)
+      tree.value < value ->
+        contains?(tree.right, value)
+      tree.value == value ->
+        true
+    end
   end
 
   defp do_push(:left, %__MODULE__{left: nil} = tree, value) do
