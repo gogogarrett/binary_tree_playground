@@ -32,4 +32,8 @@ defmodule BinaryTreePlayground do
 
     TreeNode2.contains?(tree, 100)
   end
+
+  def from_list(list) do
+    TreeNode3.from_list(list)
+  end
 end

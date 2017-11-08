@@ -53,4 +53,16 @@ defmodule BinaryTreePlaygroundTest do
       refute BinaryTreePlayground.does_not_contain
     end
   end
+
+  describe "from list builds a tree" do
+    test "given a list of 1, 2, 3, 4 - will produce a valid tree" do
+      list = [1, 2, 3]
+      tree = BinaryTreePlayground.from_list(list)
+
+      list
+      |> Enum.each(fn(x) ->
+        assert TreeNode3.contains?(tree, x)
+      end)
+    end
+  end
 end
