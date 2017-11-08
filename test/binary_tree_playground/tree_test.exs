@@ -90,4 +90,28 @@ defmodule BinaryTreePlayground.TreeTest do
       end)
     end
   end
+
+  describe "to list" do
+    test "given a binary tree, product the values in a list in order" do
+      tree = %Tree.Node{
+        left: %Tree.Node{
+          left: %Tree.Node{
+            left: nil,
+            right: nil,
+            value: 1,
+          },
+          right: nil,
+          value: 2,
+        },
+        right: %Tree.Node{
+          left: nil,
+          right: nil,
+          value: 4,
+        },
+        value: 3,
+      }
+
+      assert Tree.to_list(tree) == [1, 2, 3, 4]
+    end
+  end
 end

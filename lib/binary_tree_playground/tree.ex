@@ -39,6 +39,16 @@ defmodule BinaryTreePlayground.Tree do
     end)
   end
 
+  def to_list(nil), do: []
+  def to_list(%Node{} = tree) do
+    root_value = tree.value
+
+    left_value = to_list(tree.left)
+    right_value = to_list(tree.right)
+
+    left_value ++ [root_value] ++ right_value
+  end
+
   defp do_push(:left, %Node{left: nil} = tree, value) do
     Map.put(tree, :left, Node.build(value))
   end
